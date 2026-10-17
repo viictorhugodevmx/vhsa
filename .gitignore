@@ -1,0 +1,37 @@
+# Dependencias
+node_modules/
+
+# Compilación y cachés
+.next/
+out/
+dist/
+coverage/
+*.tsbuildinfo
+.turbo/
+.npm/
+
+# Resultados de pruebas
+playwright-report/
+test-results/
+
+# Variables y credenciales locales
+.env
+.env.*
+!.env.example
+
+# Datos persistentes y respaldos
+data/
+uploads/
+backups/
+secrets/
+
+# Logs
+*.log
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Configuración personal del editor
+.idea/
+.vscode/

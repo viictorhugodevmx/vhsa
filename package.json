@@ -1,0 +1,15 @@
+{
+  "name": "vhsa",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bitácora personal de Víctor Hugo Segundo Aguilar.",
+  "workspaces": [
+    "front",
+    "back"
+  ],
+  "engines": {
+    "node": "22.19.0",
+    "npm": "10.9.3"
+  },
+  "packageManager": "npm@10.9.3"
+}
