@@ -1,0 +1,36 @@
+name: vhsa
+
+services:
+  mongo:
+    image: mongo@sha256:4c7d0fb8fde0681e2ae443b0b09371ec9c31a81caab05af9579458bfcb30d656
+    ports:
+      - "127.0.0.1:${MONGO_HOST_PORT:-27018}:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME:?Falta usuario en .env}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:?Falta contraseña en .env}
+    volumes:
+      - mongo_data:/data/db
+      - mongo_config:/data/configdb
+    healthcheck:
+      test:
+        - CMD
+        - mongosh
+        - --quiet
+        - --eval
+        - >-
+          const admin = db.getSiblingDB('admin');
+          admin.auth(
+            process.env.MONGO_INITDB_ROOT_USERNAME,
+            process.env.MONGO_INITDB_ROOT_PASSWORD
+          );
+          const result = admin.runCommand({ connectionStatus: 1 });
+          quit(result.ok === 1 &&
+            result.authInfo.authenticatedUsers.length > 0 ? 0 : 1);
+      interval: 10s
+      timeout: 10s
+      start_period: 30s
+      retries: 6
+
+volumes:
+  mongo_data:
+  mongo_config:

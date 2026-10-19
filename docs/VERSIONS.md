@@ -144,3 +144,11 @@ No son dependencias instaladas ni comprobaciones ya realizadas.
 - Revisar requisitos de dependencias transitivas y conflictos de peers.
 - No usar force ni legacy-peer-deps para ocultar incompatibilidades.
 - Documentar cualquier ajuste antes de cambiar la selección.
+
+## MongoDB — versión ejecutada y comprobada
+- Servidor: 8.0.34.
+- Plataforma: linux/amd64.
+- Digest: sha256:4c7d0fb8fde0681e2ae443b0b09371ec9c31a81caab05af9579458bfcb30d656.
+- Versión obtenida ejecutando mongod --version en la imagen.
+- Autenticación, aislamiento de usuarios y persistencia comprobados.
+- Este registro resuelve el parche de MongoDB pendiente en la selección inicial.
