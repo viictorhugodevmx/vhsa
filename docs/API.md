@@ -252,3 +252,23 @@ fields es opcional y se utiliza para errores asociados a campos.
 
 Los errores de validación de contenido o dimensiones de una imagen
 admitida por formato utilizan 400.
+
+## Ruta operativa implementada: salud
+GET /api/v1/health
+
+Respuesta 200:
+```json
+{
+  "data": {
+    "status": "ok",
+    "service": "vhsa-api"
+  }
+}
+```
+
+- Acceso público.
+- Cache-Control: no-store.
+- Indica que el proceso HTTP responde.
+- No consulta MongoDB en cada solicitud.
+- Las demás rutas de este documento siguen siendo contratos pendientes
+  de implementación al completar la base del backend.

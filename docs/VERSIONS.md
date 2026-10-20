@@ -152,3 +152,38 @@ No son dependencias instaladas ni comprobaciones ya realizadas.
 - Versión obtenida ejecutando mongod --version en la imagen.
 - Autenticación, aislamiento de usuarios y persistencia comprobados.
 - Este registro resuelve el parche de MongoDB pendiente en la selección inicial.
+
+## Backend — herramientas complementarias seleccionadas
+| Paquete | Versión |
+|---|---|
+| @types/node | 22.19.21 |
+| @types/express | 5.0.6 |
+| @types/supertest | 6.0.3 |
+| tsx | 4.23.15 |
+| eslint | 9.39.5 |
+| @eslint/js | 9.39.5 |
+| typescript-eslint | 8.71.2 |
+
+Las dependencias directas del backend están fijadas en back/package.json.
+El package-lock.json de la raíz registra la resolución de dependencias.
+La ejecución de lint, tipos, build y pruebas se verificará al configurar
+e implementar sus archivos correspondientes.
+
+## Corrección de ESLint para el backend
+Este registro sustituye la selección anterior de ESLint 9.39.5
+y @eslint/js 9.39.5 para el backend.
+
+| Paquete | Versión |
+|---|---|
+| eslint | 10.13.0 |
+| @eslint/js | 10.0.1 |
+
+Motivo: npm informó que ESLint 9.39.5 ya no tiene soporte.
+
+Compatibilidad declarada:
+- ESLint 10.13.0 admite Node ^22.13.0, incluido 22.19.0.
+- @eslint/js 10.0.1 admite ESLint ^10.0.0.
+- typescript-eslint 8.71.2 admite ESLint ^10.0.0.
+
+La ejecución de lint se comprobará al crear su configuración.
+La compatibilidad del lint del frontend se revisará al inicializar Next.js.
